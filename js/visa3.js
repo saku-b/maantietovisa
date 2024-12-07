@@ -27,18 +27,18 @@ const landmarks = {
     document.getElementById("option2").textContent = landmarkInfo.options[1];
     document.getElementById("option3").textContent = landmarkInfo.options[2];
   
-    document.getElementById("question-container").dataset.correct = landmarkInfo.correct;
-    document.getElementById("question-container").dataset.image = landmarkInfo.image;
+    document.getElementById("question3-container").dataset.correct = landmarkInfo.correct;
+    document.getElementById("question3-container").dataset.image = landmarkInfo.image;
   }
   
   function checkAnswer(option) {
     const selectedAnswer = document.getElementById(option).textContent;
-    const correctAnswer = document.getElementById("question-container").dataset.correct;
-    const imageSrc = document.getElementById("question-container").dataset.image;
+    const correctAnswer = document.getElementById("question3-container").dataset.correct;
+    const imageSrc = document.getElementById("question3-container").dataset.image;
   
     if (selectedAnswer === correctAnswer) {
-      document.getElementById("feedback").textContent = "Jee, tiesit jälleen :)";
-      document.getElementById("feedback").style.color = "green";
+      document.getElementById("feedback3").textContent = "Jee, tiesit jälleen :)";
+      document.getElementById("feedback3").style.color = "green";
   
       
       const imageElement = document.getElementById("landmark-image");
