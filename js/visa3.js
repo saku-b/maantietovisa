@@ -3,19 +3,19 @@ const landmarks = {
       question: "Missä maassa on paljon antiikkia?",
       options: ["Kreikka", "Ruotsi", "Kanada"],
       correct: "Kreikka",
-      image: "../kuvat/greece-1776244_1280.jpg"
+      image: "../img/greece-1776244_1280.jpg"
     },
     "Machu Picchu": {
       question: "Missä Machu Picchu sijaitsee?",
       options: ["Peru", "Suomi", "Kanada"],
       correct: "Peru",
-      image: "../kuvat/Machu Picchu.jpg",
+      image: "../img/Machu Picchu.jpg",
     },
     "Pyramidit": {
       question: "Missä maassa on pyramidit?",
       options: ["Egypti", "Islanti", "Kanada"],
       correct: "Egypti",
-      image: "../kuvat/pyramids-2371501_1280.jpg",
+      image: "../img/pyramids-2371501_1280.jpg",
     },
   };
   
@@ -40,10 +40,10 @@ const landmarks = {
       document.getElementById("feedback").textContent = "Jee, tiesit jälleen :)";
       document.getElementById("feedback").style.color = "green";
   
-      // Näytä oikea kuva
+      
       const imageElement = document.getElementById("landmark-image");
       imageElement.src = imageSrc;
-      imageElement.style.display = "block"; // Varmista, että kuva tulee näkyviin
+      imageElement.style.display = "block";
     } else {
       document.getElementById("feedback").textContent = "Kokeilehan uudelleen";
       document.getElementById("feedback").style.color = "red";
