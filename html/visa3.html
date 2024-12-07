@@ -42,23 +42,26 @@
 
   <main>
     <div class="content">
-      <h1>2. Mistä maasta kuvat ovat?</h1>
-      <p>Klikkaa kuvaa, niin saat lisää vinkkejä!</p>
-      <div id="container">
-        <div id="finland" class="image-container" onclick="roll()">
-          <img src="../img/1.jpg" alt="Vihjeen kuva" class="q-img2" />
-        </div>
+      <h1>Kliksuta pisteitä </h1>
+      <div id="map-container">
+        <img id="world-map" src="./kuvat/pexels-olly-3769138.jpg" alt="Maailmankartta" />
+        <div class="landmark" style="top: 50%; left: 60%;" onclick="showLandmarkInfo('Ateena')">Ateena</div>
+        <div class="landmark" style="top: 60%; left: 35%;" onclick="showLandmarkInfo('Machu Picchu')">Machu Picchu</div>
+        <div class="landmark" style="top: 55%; left: 55%;" onclick="showLandmarkInfo('Pyramidit')">Pyramidit</div>
       </div>
-      <input type="text" id="question" placeholder="Kirjoita vastaus tähän" />
-      <button onclick="giveAnswer()">Lähetä vastaus</button>
-      <div id="answer"></div>
+      <div id="question-container" data-correct="" data-image="">
+        <h2 id="landmark-question"></h2>
+        <button id="option1" onclick="checkAnswer('option1')"></button>
+        <button id="option2" onclick="checkAnswer('option2')"></button>
+        <button id="option3" onclick="checkAnswer('option3')"></button>
+        <p id="feedback"></p>
+      </div>
+      <img id="landmark-image" style="display: none; max-width: 100%; height: auto;" alt="Landmark Image">
+      </div>
+      <div id="feedback"></div>
     </div>
-    <a href="visa2.html">
-      <img src="../img/arrow.png" alt="Klikkaa siirtyäksesi eteenpäin" class="arrow-img">
-  </a>
-
-
   </main>
+  
   
 
   <footer>

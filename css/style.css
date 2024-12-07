@@ -49,14 +49,15 @@
   max-width: 50%;
 }
 
+.q-img2 {
+  max-width: 50%;
+}
+
 .arrow-img 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f9f9f9;
+ {
+  width: 50px;
+  height: auto;
+  transition: transform 0.3s;
 }
 a img {
   border: 2px solid #ccc;
@@ -72,6 +73,43 @@ a img:hover {
     background-color: #f4f4f4;
     padding: 2rem;
   }
+
+  /* Vastausalue ja napit */
+input#question {
+  display: block;
+  margin: 1rem auto;
+  padding: 10px;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  margin: 1rem auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: seagreen;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
+
+#answer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 
   footer {
     text-align: center;
