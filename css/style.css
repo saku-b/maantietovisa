@@ -3,6 +3,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin: 0;
 }
 
 nav {
@@ -22,6 +23,7 @@ main {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  width: 100%;
 }
 
 .main-img {
@@ -32,6 +34,9 @@ main {
   width: 80%;
   background-color: #EEEEEE;
   padding: 2rem;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 footer {
@@ -39,4 +44,12 @@ footer {
   padding: 1rem;
   background-color: #91d5f5;
   color: #EEEEEE;
+  margin-top: auto;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 10px;
+  }
 }
