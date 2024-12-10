@@ -58,6 +58,14 @@ body {
     text-align: center;
 }
 
+.incorrect{
+  background-color: red;
+}
+
+.correct{
+  background-color: #0cdc1e;
+}
+
 .button{
  
     background-color: #EEEEEE;
@@ -69,6 +77,8 @@ body {
     
 }
 
+
+
 button:hover{
     background: #91d5f5;
 }
@@ -79,7 +89,7 @@ button:hover{
     text-align: center;
     cursor: pointer;
     border-radius: 0.5rem;
-    display: none;
+    display: flex;
     margin: auto;
     margin-top: 1rem;
     padding: 1em;
@@ -87,3 +97,4 @@ button:hover{
 
 
 }   
+
