@@ -1,5 +1,6 @@
 // Hyödynnetty tutoriaalia https://www.jamesqquick.com/blog/build-a-javascript-memory-match-game/
 
+// List of countries and flag images from https://flagcdn.com/
 const countries = [
     { name: "Afganistan", flag: "https://flagcdn.com/w320/af.png" },
     { name: "Albania", flag: "https://flagcdn.com/w320/al.png" },
@@ -70,7 +71,6 @@ const countries = [
     { name: "Kazakhstan", flag: "https://flagcdn.com/w320/kz.png" },
     { name: "Kenia", flag: "https://flagcdn.com/w320/ke.png" },
     { name: "Etelä-Korea", flag: "https://flagcdn.com/w320/kr.png" },
-    { name: "Kuuba", flag: "https://flagcdn.com/w320/cu.png" },
     { name: "Kuwait", flag: "https://flagcdn.com/w320/kw.png" },
     { name: "Kirgisia", flag: "https://flagcdn.com/w320/kg.png" },
     { name: "Laos", flag: "https://flagcdn.com/w320/la.png" },
@@ -177,35 +177,20 @@ const countries = [
     { name: "Zimbabwe", flag: "https://flagcdn.com/w320/zw.png" }
 ];
 
-let firstPick;
+let firstPick = null;
 let isPaused = true;
-let matches;
+let matches = 0;
 
-const loadCountries = () => {
-    const shuffledCountries = [...countries].sort(() => Math.random() - 0.5);
-    return shuffledCountries.slice(0, 8);
-}
-
-const resetGame = async () => {
-    const game = document.getElementById("game");
-    game.innerHTML = '';
-    isPaused = true;
-    firstPick = null;
+const loadGame = () => {
     matches = 0;
+    document.getElementById("score").textContent = `Pisteet: ${matches}/8`;
+    const shuffled = [...countries]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 8);
 
-    setTimeout(() => {
-        const selectedCountries = loadCountries();
-        displayCountries([...selectedCountries, ...selectedCountries]); // Duplicate
-        isPaused = false;
-    }, 200);
-};
-
-const displayCountries = (countries) => {
-    const game = document.getElementById("game");
-    countries.sort(() => Math.random() - 0.5); // Shuffle 
-
-    const countryHTML = countries.map((country) => {
-        return `
+    const gameCards = [...shuffled, ...shuffled]
+        .sort(() => Math.random() - 0.5)
+        .map(country => `
             <div class="card" onclick="clickCard(event)" data-countryname="${country.name}">
               <div class="front"></div>
               <div class="back rotated">
@@ -213,59 +198,48 @@ const displayCountries = (countries) => {
                 <h2>${country.name}</h2>
               </div>
             </div>
-        `;
-    }).join('');
+        `).join('');
 
-    game.innerHTML = countryHTML;
+    document.getElementById("game").innerHTML = gameCards;
+    isPaused = false;
 };
 
+// Handle clicks, check if is card rotated or is game paused, rotate card
+// If second card clicked, check for match, if match ++ matches, update score display and check if all matched
+// If not match, rotate cards
 const clickCard = (e) => {
-    const countryCard = e.currentTarget;
-    const [front, back] = getFrontAndBackFromCard(countryCard);
+    const card = e.currentTarget;
+    const front = card.querySelector(".front");
+    const back = card.querySelector(".back");
 
-    if (front.classList.contains("rotated") || isPaused) {
+    if (front.classList.contains("rotated") || isPaused) return;
+
+    isPaused = true;
+    [front, back].forEach(el => el.classList.toggle('rotated'));
+
+    if (!firstPick) {
+        firstPick = card;
+        isPaused = false;
         return;
     }
 
-    isPaused = true;
-    rotateElements([front, back]);
-
-    if (!firstPick) {
-        firstPick = countryCard;
+    if (firstPick.dataset.countryname === card.dataset.countryname) {
+        matches++;
+        document.getElementById("score").textContent = `Pisteet: ${matches}/8`;
+        if (matches === 8) alert("Onnittelut! Voitit pelin!");
+        firstPick = null;
         isPaused = false;
     } else {
-        const secondCountryName = countryCard.dataset.countryname;
-        const firstCountryName = firstPick.dataset.countryname;
-
-        if (firstCountryName !== secondCountryName) {
-            const [firstFront, firstBack] = getFrontAndBackFromCard(firstPick);
-
-            setTimeout(() => {
-                rotateElements([front, back, firstFront, firstBack]);
-                firstPick = null;
-                isPaused = false;
-            }, 500);
-        } else {
-            matches++;
-            if (matches === 8) {
-                console.log("WINNER");
-                alert("Onnittelut! Voitit pelin!");
-            }
+        setTimeout(() => {
+            const [firstFront, firstBack] = [
+                firstPick.querySelector(".front"),
+                firstPick.querySelector(".back")
+            ];
+            [front, back, firstFront, firstBack].forEach(el => el.classList.toggle('rotated'));
             firstPick = null;
             isPaused = false;
-        }
+        }, 500);
     }
 };
 
-const getFrontAndBackFromCard = (card) => {
-    const front = card.querySelector(".front");
-    const back = card.querySelector(".back");
-    return [front, back];
-};
-
-const rotateElements = (elements) => {
-    if (typeof elements !== 'object' || !elements.length) return;
-    elements.forEach(element => element.classList.toggle('rotated'));
-};
-
-resetGame();
+loadGame();
