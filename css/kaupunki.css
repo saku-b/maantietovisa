@@ -25,7 +25,9 @@ body {
   }
   
   .main-img {
-    max-width: 50%;
+    max-width: 15%;
+    margin-left: 20%;
+    margin-bottom: 2%;
   }
   
   .content {
@@ -58,12 +60,24 @@ body {
     text-align: center;
 }
 
-.incorrect{
-  background-color: red;
+.incorrect {
+  background-color: red !important;
+  color: #ffffff !important;
 }
 
-.correct{
-  background-color: #0cdc1e;
+.correct {
+  background-color: #0cdc1e !important;
+  color: #ffffff !important;
+}
+
+.button.correct:hover,
+.button.incorrect:hover {
+  background-color: inherit;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7; /* Optional for better visual feedback */
 }
 
 .button{
@@ -76,13 +90,6 @@ body {
     cursor: pointer;
     
 }
-
-
-
-button:hover{
-    background: #91d5f5;
-}
-
 
 .next{
     background-color: #a6a6a6;

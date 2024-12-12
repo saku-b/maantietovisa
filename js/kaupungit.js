@@ -42,7 +42,7 @@ let questions = [
     {
         question: "Mikä on Suomen pääkaupunki?",
         answers: [
-            { text: "Kööpenhamina", correct: false},
+            { text: "Varkaus", correct: false},
             { text: "Tallinna", correct: false},
             { text: "Helsinki", correct: true},
             { text: "Tukholma", correct: false}
@@ -59,24 +59,77 @@ let questions = [
 
         ]
     },
+    {
+        question: "Mikä on Venäjän pääkaupunki?",
+        answers: [
+            { text: "Tallinna", correct: false},
+            { text: "Moskova", correct: true},
+            { text: "Tukholma", correct: false},
+            { text: "Juankoski", correct: false}
+
+        ]
+    },
+    {
+        question: "Mikä on Islannin pääkaupunki?",
+        answers: [
+            { text: "Kittilä", correct: false},
+            { text: "Moskova", correct: false},
+            { text: "Reykjavik", correct: true},
+            { text: "Oslo", correct: false}
+
+        ]
+    },
+    {
+        question: "Mikä on Saksan pääkaupunki?",
+        answers: [
+            { text: "Berliini", correct: true},
+            { text: "Kontula", correct: false},
+            { text: "Helsinki", correct: false},
+            { text: "Pariisi", correct: false}
+
+        ]
+    },
+    {
+        question: "Mikä on Ranskan pääkaupunki?",
+        answers: [
+            { text: "Amsterdam", correct: false},
+            { text: "Berliini", correct: false},
+            { text: "Pariisi", correct: true},
+            { text: "Raahe", correct: false}
+
+        ]
+    },
+    {
+        question: "Mikä on Hollannin pääkaupunki?",
+        answers: [
+            { text: "Amsterdam", correct: true},
+            { text: "Pudasjärvi", correct: false},
+            { text: "Pariisi", correct: false},
+            { text: "Tallinna", correct: false}
+
+        ]
+    },
 ]
 
 //alkufunktio, jossa score on nolla
-function start(){
+function start() {
+    resetState();
     questionNumber = 0;
     score = 0;
+    next.innerHTML = "Seuraava"; 
     showQuestion();
-
+    document.getElementById('score').textContent = ""; 
 }
 
 //näytetään kysymys ja vastausvaihtoehdot
 function showQuestion(){
+    resetState();
     let currentQuestion = questions[questionNumber];
     let questionCounter = questionNumber + 1;
+
     questionElement.innerHTML = questionCounter + ". " +
     currentQuestion.question; 
     
-    answerButton.innerHTML = "";
 
     currentQuestion.answers.forEach(answer => {
         let button = document.createElement("button");
@@ -86,11 +139,14 @@ function showQuestion(){
         button.addEventListener("click", selectAnswer); 
         answerButton.appendChild(button)
     });
+
 }
 
 function selectAnswer(e) {
     const selectedButton = e.target;
-    const correct = selectedButton.dataset.correct ==="true";
+    const correct = selectedButton.dataset.correct === "true";
+
+    // vastaus tulee näkymään oikean värisenä
     if (correct) {
         score++;
         selectedButton.classList.add('correct');
@@ -98,20 +154,70 @@ function selectAnswer(e) {
         selectedButton.classList.add('incorrect');
     }
 
+     // vastaukset disabloituvat kun on vastattu. 
+     Array.from(answerButton.children).forEach(button => {
+        button.disabled = true;
+        if (button.dataset.correct === "true") {
+            button.classList.add('correct');
+        }
+    });
+
+    next.style.display = "block";
+
 }
+
+// pistemäärä kun kysymyksiin on vastattu
+function scoreboard(){
+    resetState();
+
+    let message = "";
+    // eri pistemääristä tulee eri palaute
+    if (score === 10 ) {
+
+        message = "Täydellistä!!!";
+
+    } else if (score >= 7){
+
+            message = "Hyvin tehty!";
+
+    } else {
+        
+            message = "Nyt ollaan kyl treenin tarpeessa";
+    }
+    questionElement.innerHTML = "Sait pisteitä " + score + " / " + questions.length + "!! " + "<br>" + message;
+
+    next.innerHTML = "Pelaa uudestaan";
+    next.style.display = "block";
+    
+    // uudelleen aloittamis funktio
+    
+
+    next.addEventListener("click", () => {
+        questionNumber = 0; 
+        start(); 
+    }, { once: true }); 
+}
+
+//käydään läpi kysymykset, kun ne on käyty nii scoreboard tulee näkyviin
 
 next.addEventListener("click", () => {
     questionNumber++;
     if (questionNumber < questions.length) {
         showQuestion();
     } else {
-        next.innerHTML = "Restart";
-        next.addEventListener("click", start);
+        scoreboard();
+        
     }
-
-    document.getElementById('score').textContent =
-    "Pisteitä " + score + "/" + questions.length + ". Oletpas körmy!"
-
+    
 });
+
+
+function resetState() {
+   
+    while (answerButton.firstChild) {
+        answerButton.removeChild(answerButton.firstChild);
+    }
+    next.style.display = "none"; 
+}
 
 start();
