@@ -45,8 +45,8 @@ const landmarks = {
       imageElement.src = imageSrc;
       imageElement.style.display = "block";
     } else {
-      document.getElementById("feedback").textContent = "Kokeilehan uudelleen";
-      document.getElementById("feedback").style.color = "red";
+      document.getElementById("feedback3").textContent = "Kokeilehan uudelleen";
+      document.getElementById("feedback3").style.color = "red";
     }
   }
   
