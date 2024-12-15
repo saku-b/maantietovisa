@@ -146,4 +146,3 @@ if (selectedIndex === currentQuestion.correct) {
 
 // Lataa ensimmäinen kysymys sivun latautuessa
 window.onload = loadQuestion;
-
