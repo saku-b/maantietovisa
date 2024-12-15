@@ -1,12 +1,13 @@
-let tunnista = number(sessionStorage.getItem('tunnista-maa'));
-let kaupungit = number(sessionStorage.getItem('kaupungit'));
-let lippupeli = number(sessionStorage.getItem('lippupeli'));
-let nahtavyydet = number(sessionStorage.getItem('nahtavyydet'));
+const displayTotalScore = () => {
 
+    const tunnista = parseInt(sessionStorage.getItem('tunnista-maa')) || 0;
+    const kaupungit = parseInt(sessionStorage.getItem('kaupungit')) || 0;
+    const lippupeli = parseInt(sessionStorage.getItem('lippupeli')) || 0;
+    const nahtavyydet = parseInt(sessionStorage.getItem('nahtavyydet')) || 0;
 
+    const pisteet = tunnista + kaupungit + lippupeli + nahtavyydet;
 
-let pisteet = tunnista + kaupungit + lippupeli + nahtavyydet;
+    document.getElementById("points").textContent = `Yhteispisteet: ${pisteet}`;
+}
 
-let pointElem = document.getElementById('points');
-
-pointElem.textContent = 'Yhteispisteet:' + pisteet;
+displayTotalScore();
