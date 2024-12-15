@@ -1,0 +1,50 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  nav {
+    background-color: #85C88A;
+  }
+  
+  
+  .navbar-brand img {
+    max-height: 40px;
+    width: auto;
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    background-color: #EEEEEE;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  h1{
+    font-weight: bold;
+  }
+
+  h2{
+    padding-bottom: 2rem;
+  }
+
+  
+  .info {
+    text-align: center;
+    gap: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    padding: 2rem;
+  }
+  
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #91d5f5;
+    color: #EEEEEE;
+  }
