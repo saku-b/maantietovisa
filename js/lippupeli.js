@@ -1,6 +1,7 @@
 // Hyödynnetty tutoriaalia https://www.jamesqquick.com/blog/build-a-javascript-memory-match-game/
 
-// List of countries and flag images from https://flagcdn.com/
+// Liput https://flagcdn.com/
+
 const countries = [
     { name: "Afganistan", flag: "https://flagcdn.com/w320/af.png" },
     { name: "Albania", flag: "https://flagcdn.com/w320/al.png" },
