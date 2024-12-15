@@ -6,6 +6,8 @@ let optionButton = document.getElementById("optionButton");
 let questionNumber = 0;
 let score = 0;
 
+ 
+
 //luodaan kysymykset
 
 let questions = [
@@ -185,6 +187,8 @@ function scoreboard(){
             message = "Nyt ollaan kyl treenin tarpeessa";
     }
     questionElement.innerHTML = "Sait pisteitä " + score + " / " + questions.length + "!! " + "<br>" + message;
+
+    sessionStorage.setItem('kaupungit', score)
 
     next.innerHTML = "Pelaa uudestaan";
     next.style.display = "block";
