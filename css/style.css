@@ -47,15 +47,26 @@
 
 .q-img {
   max-width: 50%;
+  display: block;
+  margin: 1rem auto;
+  padding: 10px 20px;
+
 }
+.content {
+  text-align: center;
+}
+
 
 .q-img2 {
   max-width: 50%;
+  display: block;
+  margin: 1rem auto;
+  padding: 10px 20px;
 }
 
 .arrow-img 
  {
-  width: 50px;
+  width: 100px;
   height: auto;
   transition: transform 0.3s;
 }
@@ -72,6 +83,13 @@ a img:hover {
     width: 80%;
     background-color: #f4f4f4;
     padding: 2rem;
+  }
+
+  #feedback {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 
   /* Vastausalue ja napit */
@@ -103,11 +121,24 @@ button:hover {
   background-color: darkgreen;
 }
 
+
 #answer {
   margin-top: 1rem;
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+#quiz-container4 {
+  text-align: center;
+}
+
+.option-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 
