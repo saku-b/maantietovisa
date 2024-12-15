@@ -225,6 +225,7 @@ const clickCard = (e) => {
 
     if (firstPick.dataset.countryname === card.dataset.countryname) {
         matches++;
+        sessionStorage.setItem('lippupeli', matches)
         document.getElementById("score").textContent = `Pisteet: ${matches}/8`;
         if (matches === 8) alert("Onnittelut! Voitit pelin!");
         firstPick = null;
