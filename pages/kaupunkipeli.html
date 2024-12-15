@@ -7,13 +7,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pallopäät</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/kaupunki.css">
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="index.html"> <img src="./img/pallopaat_logo_s.png" alt="Pallopäät"></a>
+      <a class="navbar-brand" href="#"> <img src="../img/pallopaat_logo_s.png" alt="Pallopäät"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -22,10 +22,10 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Koti <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/index.html">Koti</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/kaupunkipeli.html">Kaupunkivisa</a>
+            <a class="nav-link" href="./kaupunkipeli.html">Kaupunkivisa <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Tunnista maa</a>
@@ -34,13 +34,13 @@
             <a class="nav-link" href="#">Nähtävyydet</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./pages/lippupeli.html">Lippupeli</a>
+            <a class="nav-link" href="./lippupeli.html">Lippuvisa</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Yhteenveto</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/infosivu.html">Infosivu</a>
+            <a class="nav-link" href="./infosivu.html">Infosivu</a>
           </li>
         </ul>
       </div>
@@ -49,19 +49,32 @@
 
   <main>
     <div class="content">
-      <img src="./img/Illustration43.png" alt="Pallopää" class="main-img">
-      <div class="speechBubble">
-        <p>Moi, olen Pate Pallopää, seikkaileva maapallo! 🌍 Tule mukaan oppimaan maantietoa pelien kautta.
-          Tunnistatko eri maat tai kaupungit? Entä miten hyvin tunnistat nähtävyydet tai muistat eri maiden
-          liput? Lähdetään yhdessä mahtavalle oppimisseikkailulle!
-        </p>
+
+      <div class="quiz">
+          <h1>Pääkaupunkivisa</h1>
+          <h2 id="question">kyssäri tähä</h2>
+          <img src="../img/Illustration43.png" alt="Pallopää" class="main-img"> 
+        <div id="answers">
+          <button id="optionButton" class="button">Vastaus1</button>
+          <button id="optionButton" class="button">Vastaus2</button>
+          <button id="optionButton" class="button">Vastaus3</button>
+          <button id="optionButton" class="button">Vastaus4</button>
+        </div>
+          <button class="next" id="next">Seuraava</button>
+          <div>
+            <h2 id="score"></h2>
+          </div>
       </div>
+      
     </div>
+    
   </main>
 
   <footer>
     &copy; Pallopäät
+    
   </footer>
+  <script src="/js/kaupungit.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -73,4 +86,4 @@
     crossorigin="anonymous"></script>
 </body>
 
-</html>
+</html><!DOCTYPE html>

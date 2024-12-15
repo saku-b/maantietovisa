@@ -1,8 +1,13 @@
-# Maantietovisa
+# Pallopäät-maantietovisa
 
-Tiimin jäsenet:
+Tiimin jäsenet:  
+  
+  
+saku-b / Saku Blomberg  
 
-saku-b / Saku Blomberg
-KasperiVaarala / Kasperi Vaarala
-mattinuorela/ Matti Nuorela
-GitBubGrub / Ville Suikkari
+KasperiVaarala / Kasperi Vaarala  
+
+mattinuorela/ Matti Nuorela  
+
+GitBubGrub / Ville Suikkari  
+
