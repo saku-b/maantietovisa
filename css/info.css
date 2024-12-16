@@ -35,7 +35,7 @@ body {
   ul {
     list-style-type: none;
   }
-  
+
   .info {
     text-align: center;
     gap: 2rem;
@@ -45,9 +45,9 @@ body {
   }
   
 
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #91d5f5;
-    color: #EEEEEE;
-  }
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #91d5f5;
+  color: #000000;
+}
